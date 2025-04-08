@@ -11,12 +11,9 @@ interface MobileNavProps {
 export function MobileNav({ onClose }: MobileNavProps) {
   return (
     <div className="fixed inset-0 z-50 flex flex-col bg-white p-6">
-      {/* Language Selector */}
       <div className="flex items-center justify-end">
         <LanguageSelector />
       </div>
-
-      {/* Navigation Links */}
       <nav className="mt-8 flex flex-col space-y-6">
         <Link
           href="/history"
@@ -75,8 +72,6 @@ export function MobileNav({ onClose }: MobileNavProps) {
           Contact
         </Link>
       </nav>
-
-      {/* Contact Button */}
       <div className="mt-auto">
         <Link href="/contact" className="w-full" onClick={onClose}>
           <Button className="w-full">Contact Us</Button>

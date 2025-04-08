@@ -1,29 +1,49 @@
-import Link from "next/link"
+"use client"
 
-export function MainNav() {
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+
+interface MainNavProps {
+  isHomePage?: boolean
+  isScrolled?: boolean
+}
+
+export function MainNav({ isHomePage = false, isScrolled = true }: MainNavProps) {
+  const pathname = usePathname()
+
+  const navItems = [
+    { href: "/history", label: "History" },
+    { href: "/effects", label: "Effects" },
+    { href: "/stockpiles", label: "Stockpiles" },
+    { href: "/efforts", label: "Disarmament" },
+    { href: "/action", label: "Take Action" },
+    { href: "/news", label: "News" },
+    { href: "/resources", label: "Resources" },
+  ]
+
   return (
     <nav className="flex items-center space-x-6">
-      <Link href="/history" className="text-sm font-medium text-gray-700 transition-colors hover:text-blue-600">
-        History
-      </Link>
-      <Link href="/effects" className="text-sm font-medium text-gray-700 transition-colors hover:text-blue-600">
-        Effects
-      </Link>
-      <Link href="/stockpiles" className="text-sm font-medium text-gray-700 transition-colors hover:text-blue-600">
-        Stockpiles
-      </Link>
-      <Link href="/efforts" className="text-sm font-medium text-gray-700 transition-colors hover:text-blue-600">
-        Disarmament
-      </Link>
-      <Link href="/action" className="text-sm font-medium text-gray-700 transition-colors hover:text-blue-600">
-        Take Action
-      </Link>
-      <Link href="/news" className="text-sm font-medium text-gray-700 transition-colors hover:text-blue-600">
-        News
-      </Link>
-      <Link href="/resources" className="text-sm font-medium text-gray-700 transition-colors hover:text-blue-600">
-        Resources
-      </Link>
+      {navItems.map((item) => {
+        const isActive = pathname === item.href
+        return (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={`text-sm font-medium transition-colors relative
+              ${
+                isHomePage && !isScrolled
+                  ? "text-white hover:text-white/80"
+                  : isActive
+                    ? "text-blue-600"
+                    : "text-gray-700 hover:text-blue-600"
+              }
+              ${isActive ? "after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:bg-current" : ""}
+            `}
+          >
+            {item.label}
+          </Link>
+        )
+      })}
     </nav>
   )
 }

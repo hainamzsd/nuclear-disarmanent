@@ -4,7 +4,11 @@ import { useState } from "react"
 import { Globe } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
-export function LanguageSelector() {
+interface LanguageSelectorProps {
+  isLight?: boolean
+}
+
+export function LanguageSelector({ isLight = false }: LanguageSelectorProps) {
   const [currentLanguage, setCurrentLanguage] = useState("EN")
 
   const languages = [
@@ -22,7 +26,10 @@ export function LanguageSelector() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex items-center space-x-1 rounded-md px-2 py-1 text-sm font-medium text-gray-700 hover:bg-gray-100">
+      <DropdownMenuTrigger
+        className={`flex items-center space-x-1 rounded-md px-2 py-1 text-sm font-medium 
+        ${isLight ? "text-white hover:bg-white/20" : "text-gray-700 hover:bg-gray-100"}`}
+      >
         <Globe className="h-4 w-4" />
         <span>{currentLanguage}</span>
       </DropdownMenuTrigger>
