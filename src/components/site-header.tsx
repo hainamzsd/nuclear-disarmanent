@@ -89,7 +89,7 @@ export function SiteHeader() {
       </div>
 
       {/* Mobile Navigation */}
-      {isMobileMenuOpen && <MobileNav onClose={() => setIsMobileMenuOpen(false)} />}
+      <MobileNav isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
     </header>
   )
 }
