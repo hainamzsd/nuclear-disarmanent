@@ -26,7 +26,7 @@ export function LanguageSelector({ isLight = false }: LanguageSelectorProps) {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger
+      <DropdownMenuTrigger 
         className={`flex items-center space-x-1 rounded-md px-2 py-1 text-sm font-medium 
         ${isLight ? "text-white hover:bg-white/20" : "text-gray-700 hover:bg-gray-100"}`}
       >

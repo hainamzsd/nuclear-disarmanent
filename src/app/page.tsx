@@ -5,7 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Volume2, VolumeX, Pause, Play } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { InteractiveGlobe } from "@/components/interactive-globe"
+import { InteractiveGlobe } from "@/components/earth-visualize/interactive-globe"
 import { NewsletterSignup } from "@/components/newsletter-signup"
 
 export default function HomePage() {

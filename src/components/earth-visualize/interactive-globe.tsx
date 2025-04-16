@@ -99,13 +99,14 @@ export function InteractiveGlobe() {
 
     // Controls
     const controls = new OrbitControls(camera, renderer.domElement)
-    controls.enableDamping = true
+    controls.enableDamping = false
     controls.dampingFactor = 0.05
     controls.rotateSpeed = 0.5
     controls.enablePan = false
     controls.minDistance = 150
     controls.maxDistance = 300
     controlsRef.current = controls
+    controls.enableZoom = false
 
     // Earth globe (abstract visualization)
     const earthGeometry = new THREE.SphereGeometry(100, 64, 64)
@@ -194,7 +195,7 @@ export function InteractiveGlobe() {
       const glowMaterial = new THREE.MeshBasicMaterial({
         color: new THREE.Color(country.color),
         transparent: true,
-        opacity: 0.3,
+        opacity: 0.5,
       })
 
       const glow = new THREE.Mesh(glowGeometry, glowMaterial)
@@ -324,7 +325,7 @@ export function InteractiveGlobe() {
         const atmosMat = new THREE.MeshBasicMaterial({
           color: new THREE.Color(0x5566ff), // Slightly purple-blue color
           transparent: true,
-          opacity: 0.15,
+          opacity: 0,
           side: THREE.BackSide,
         })
 
@@ -337,7 +338,7 @@ export function InteractiveGlobe() {
         const outerAtmosMat = new THREE.MeshBasicMaterial({
           color: new THREE.Color(0x8080ff), // More purple tint
           transparent: true,
-          opacity: 0.07,
+          opacity: 0,
           side: THREE.BackSide,
         })
 

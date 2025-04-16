@@ -1,5 +1,5 @@
 import * as THREE from "three"
-import type { RealisticEarth } from "./types"
+import type { RealisticEarth } from "../types"
 import { vertexShader } from "./vertex-shader" 
 import { fragmentShader } from "./fragment-shader" 
 

@@ -1,5 +1,5 @@
 import * as THREE from "three"
-import type { AbstractEarth } from "./types"
+import type { AbstractEarth } from "../types"
 
 export function createAbstractEarth(scene: THREE.Scene): AbstractEarth {
   // Earth globe (abstract visualization)

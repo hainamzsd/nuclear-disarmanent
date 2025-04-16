@@ -1,6 +1,6 @@
 import * as THREE from "three"
 import { gsap } from "gsap"
-import type { NuclearData, NuclearMarkers } from "./types"
+import type { NuclearData, NuclearMarkers } from "../types"
 
 export function createNuclearMarkers(scene: THREE.Scene, nuclearData: NuclearData[]): NuclearMarkers {
   // Add nuclear markers

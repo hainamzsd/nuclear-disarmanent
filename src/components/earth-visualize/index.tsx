@@ -10,7 +10,7 @@ import { CountUp } from "countup.js"
 import { createAbstractEarth } from "./abstract-earth"
 import { createRealisticEarth } from "./realistic-earth"
 import { createNuclearMarkers } from "./nuclear-markers"
-import type { NuclearData } from "./types"
+import type { NuclearData } from "../types"
 
 export function InteractiveGlobe() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -138,6 +138,7 @@ export function InteractiveGlobe() {
     controls.minDistance = 150
     controls.maxDistance = 300
     controlsRef.current = controls
+    controls.enableZoom = false
 
     // Create abstract Earth visualization
     const abstractEarth = createAbstractEarth(scene)
