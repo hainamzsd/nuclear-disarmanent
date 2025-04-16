@@ -5,7 +5,7 @@ import Link from "next/link"
 import { X } from "lucide-react"
 import { LanguageSelector } from "@/components/language-selector"
 import { Button } from "@/components/ui/button"
-import { ModeToggle } from "./mode-toggle"
+import { ModeToggle } from "@/components/mode-toggle"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetClose } from "@/components/ui/sheet"
 
 interface MobileNavProps {
@@ -29,12 +29,12 @@ export function MobileNav({ onClose, isOpen }: MobileNavProps) {
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetContent side="right" className="[&>button]:hidden w-[80%] border-l border-gray-200 p-0">
+      <SheetContent side="right" className="w-[80%] border-l border-gray-200 p-0">
         <div className="flex h-full flex-col">
           <SheetHeader className="border-b border-gray-100 p-6">
             <div className="flex items-center justify-between">
               <SheetTitle className="text-xl font-bold">Menu</SheetTitle>
-              <SheetClose>
+              <SheetClose asChild>
                 <Button variant="ghost" size="icon" onClick={onClose} className="h-8 w-8">
                   <X className="h-4 w-4" />
                   <span className="sr-only">Close</span>

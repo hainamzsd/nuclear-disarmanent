@@ -38,9 +38,9 @@ export function SiteHeader() {
 
   return (
     <header
-      className={` top-0 z-50 w-full transition-all duration-300 ${
-         !isScrolled ? "bg-transparent" : "bg-white/95 backdrop-blur-sm shadow-sm"
-      } ${isHomePage ? "fixed" : 'sticky'}` }
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+        isHomePage && !isScrolled ? "bg-transparent" : "bg-white/95 backdrop-blur-sm shadow-sm"
+      }`}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <Link href="/" className="flex items-center space-x-2">
@@ -67,7 +67,7 @@ export function SiteHeader() {
             <Button
               variant={isHomePage && !isScrolled ? "outline" : "default"}
               size="sm"
-              className={isHomePage && !isScrolled ? "border-white hover:bg-white/20" : ""}
+              className={isHomePage && !isScrolled ? "border-white text-white hover:bg-white/20" : ""}
             >
               Contact Us
             </Button>
